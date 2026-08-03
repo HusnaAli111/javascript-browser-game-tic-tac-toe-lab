@@ -33,6 +33,8 @@ function init() {
 }
 
 function render() {
+    updateBoard()
+    updateMessage()
 
 }
 
@@ -49,7 +51,17 @@ function updateBoard() {
 
 
 
-
+function updateMessage() {
+    if (winner && tie) {
+        messageEl.textContent = `its ${turn} turn`
+    }
+    else if (winner && !tie) {
+        messageEl.textContent = 'its a tie'
+    }
+    else{
+        'you win'
+    }
+}
 
 
 /*----------------------------- Event Listeners -----------------------------*/
