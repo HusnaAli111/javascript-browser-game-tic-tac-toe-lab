@@ -38,17 +38,18 @@ console.log(messageEl)
 function init() {
     console.log('game check')
     board = ['', '', '', '', '', '', '', '', '']
-    turn = 'X'
+    turn = 'O'
     winner = false
     tie = false
     render()
 }
 
 function render() {
-    switchPlayerTurn()
-    updateMessage()
     checkForWinner()
+    switchPlayerTurn()
+    
     checkForTie()
+    updateMessage()
     updateBoard()
     
     
@@ -75,7 +76,7 @@ function updateMessage() {
     }
      
     if(winner==true&&winner==true){
-         messageEl.textContent =`${turn} wins`
+         messageEl.textContent =`${turn} you WIN`
     }
     console.log(messageEl.textContent)
     
