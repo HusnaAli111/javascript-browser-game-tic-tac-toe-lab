@@ -26,6 +26,7 @@ let sequareclick
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.querySelector('#message')
+const resetBtnEl=document.querySelector('#resetBtn')
 
 
 console.log(squareEls)
@@ -150,6 +151,8 @@ init()
 squareEls.forEach(function(square){
     square.addEventListener('click', handleClick)
 })
+resetBtnEl.addEventListener('click', init);
+
 
 
 
