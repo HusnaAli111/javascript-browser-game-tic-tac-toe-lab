@@ -27,8 +27,8 @@ function init() {
     console.log('game check')
 board = [
     'X', 'O', '',
-    '', 'X', '',
-    '', '', 'O'
+    '', 'X', 'O',
+    '', '', 'X'
 ]
     turn = 'X'
     winner = false
@@ -56,14 +56,14 @@ function updateBoard() {
 
 
 function updateMessage() {
-    if (winner && tie) {
+    if (!winner && !tie) {
         messageEl.textContent = `its ${turn} turn`
     }
-    else if (winner && !tie) {
+    else if (!winner && tie) {
         messageEl.textContent = 'its a tie'
     }
     else{
-        'you win'
+         messageEl.textContent =`${turn} wins`
     }
 }
 
