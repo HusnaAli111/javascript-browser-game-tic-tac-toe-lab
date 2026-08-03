@@ -84,12 +84,20 @@ function handleClick(event){
     return
 }
 // this is for if there is a winner also return which is stop
-    
+ placePiece(sequareclick)  
+ render() 
+
 
 
 }
 
-function placePiece (){
+function placePiece (index){
+    board[index] = turn
+    //update the board with the turn value
+
+}
+
+function checkForWinner(){
 
 }
 
