@@ -47,6 +47,7 @@ function init() {
 function render() {
     switchPlayerTurn()
     updateMessage()
+    checkForWinner()
     checkForTie()
     updateBoard()
     
@@ -72,13 +73,12 @@ function updateMessage() {
     if (winner==false && tie==false) {
         messageEl.textContent = `its ${turn} turn`
     }
-     if (winner==false && tie==true) {
-        messageEl.textContent = 'its a tie'
-    }
+     
     if(winner==true&&winner==true){
          messageEl.textContent =`${turn} wins`
     }
     console.log(messageEl.textContent)
+    
 }
 
 function handleClick(event){
@@ -106,23 +106,29 @@ function placePiece (index){
 }
 
 function checkForWinner(){
-     for (let i = 0; i < winningCombos.length; i++) {
+    //  for (let i = 0; i < winningCombos.length; i++) {
 
+    //  }
+
+
+    for(let oneCombo of winningCombos){
+        if(board[oneCombo[0]] &&board[oneCombo[0]] === board[oneCombo[1]] && board[oneCombo[0]] === board[oneCombo[2]]){
+            console.log('YOU WIN')
+            winner = true
+        }
+    }
+
+     if(!board[0].includes('')&&board[0]===board[1]&&board[0]===board[2]){
+        winner=true
+        // messageEl.textContent='you win'
      }
-     const first=board[0]
-
 }
 
 function checkForTie(){
-    if (winner === true){
-        return
-    }
-    if(board.includes('')){
-        tie=false
-        
+    if (!winner &&!board.includes('')) {
+        messageEl.textContent = 'its a tie'
     }
     
-
 }
 function switchPlayerTurn(){
     if (winner === true){
