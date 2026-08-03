@@ -18,6 +18,7 @@ let board
 let turn
 let winner
 let tie
+let sequareclick
 
 
 
@@ -73,12 +74,29 @@ function updateMessage() {
          messageEl.textContent =`${turn} wins`
     }
 }
+function handleClick(event){
+    sequareclick=event.target.id
+    //this id for when the sequare is not empty it return
+    if (board[sequareclick] !== '') {
+        return
+    }
+    
+
+
+}
+
+function placePiece (){
+
+}
 
 init()
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+squareEls.forEach(function(square){
+    square.addEventListener('click', handleClick)
+})
 
 
 
