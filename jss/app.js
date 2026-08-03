@@ -98,6 +98,20 @@ function placePiece (index){
 }
 
 function checkForWinner(){
+     for (let i = 0; i < winningCombos.length; i++) {
+
+     }
+     const first=board[0]
+
+}
+
+function checkForTie(){
+    if (winner === true){
+        return
+    }
+    if(board.includes('')){
+        tie=false
+    }
 
 }
 
