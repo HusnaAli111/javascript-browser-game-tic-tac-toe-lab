@@ -45,8 +45,13 @@ function init() {
 }
 
 function render() {
-    updateBoard()
+    switchPlayerTurn()
     updateMessage()
+    checkForTie()
+    updateBoard()
+    
+    
+    
 
 }
 
@@ -64,19 +69,21 @@ function updateBoard() {
 
 
 function updateMessage() {
-    if (!winner && !tie) {
+    if (winner==false && tie==false) {
         messageEl.textContent = `its ${turn} turn`
     }
-    else if (!winner && tie) {
+     if (winner==false && tie==true) {
         messageEl.textContent = 'its a tie'
     }
-    else{
+    if(winner==true&&winner==true){
          messageEl.textContent =`${turn} wins`
     }
+    console.log(messageEl.textContent)
 }
+
 function handleClick(event){
     sequareclick=event.target.id
-    //this id for when the sequare is not empty it return
+    //this is for when the sequare is not empty it return
     if (board[sequareclick] !== '') {
         return
     }
@@ -86,6 +93,7 @@ function handleClick(event){
 // this is for if there is a winner also return which is stop
  placePiece(sequareclick)  
  render() 
+ 
 
 
 
@@ -111,10 +119,22 @@ function checkForTie(){
     }
     if(board.includes('')){
         tie=false
+        
     }
+    
 
 }
-
+function switchPlayerTurn(){
+    if (winner === true){
+        return
+    }
+    if(turn=='O'){
+        turn='X'
+    }
+    else if(turn=='X'){
+        turn='O'
+    }
+}
 init()
 
 
