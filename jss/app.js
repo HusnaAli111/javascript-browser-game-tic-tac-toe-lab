@@ -75,11 +75,15 @@ function updateMessage() {
     if (winner==false && tie==false) {
         messageEl.textContent = `its ${turn} turn`
     }
+    //this is the game still going
      
     if(winner==true&&winner==true){
          messageEl.textContent =`${turn} you WIN`
     }
+    //this is if someone win
+
     console.log(messageEl.textContent)
+    //then just print the message
     
 }
 
@@ -108,11 +112,7 @@ function placePiece (index){
 }
 
 function checkForWinner(){
-    //  for (let i = 0; i < winningCombos.length; i++) {
-
-    //  }
-
-
+ 
     for(let oneCombo of winningCombos){
         if(board[oneCombo[0]] &&board[oneCombo[0]] === board[oneCombo[1]] && board[oneCombo[0]] === board[oneCombo[2]]){
             console.log('YOU WIN')
@@ -120,22 +120,23 @@ function checkForWinner(){
         }
     }
 
-     if(!board[0].includes('')&&board[0]===board[1]&&board[0]===board[2]){
-        winner=true
-        // messageEl.textContent='you win'
-     }
+    
 }
 
 function checkForTie(){
     if (!winner &&!board.includes('')) {
         messageEl.textContent = 'its a tie'
+        // this is when the winner = false and the borad is is not impty
     }
     
 }
+
 function switchPlayerTurn(){
     if (winner === true){
         return
     }
+    //if there is a win just return
+    //but if its still going just do this if statment - to switch player turn
     if(turn=='O'){
         turn='X'
     }
