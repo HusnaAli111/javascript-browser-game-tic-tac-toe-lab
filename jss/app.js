@@ -80,6 +80,10 @@ function handleClick(event){
     if (board[sequareclick] !== '') {
         return
     }
+    if (winner === true) {
+    return
+}
+// this is for if there is a winner also return which is stop
     
 
 
